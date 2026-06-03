@@ -97,5 +97,7 @@ app.post("/GetConcesionariosCercanos", (req, res) => {
 // GET /health
 app.get("/health", (_, res) => res.json({ ok: true, registros: data.length }));
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Mock API corriendo en http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`Mock API corriendo en puerto ${PORT}`)
+);
